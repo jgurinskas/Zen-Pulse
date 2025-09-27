@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zen Pulse Demo</title>
+    <script>
+      const query = window.matchMedia('(prefers-color-scheme: dark)');
+      document.documentElement.classList.toggle('dark', query.matches);
+      query.addEventListener('change', (ev) => {
+        document.documentElement.classList.toggle('dark', ev.matches);
+      });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-white">
+    <div id="root" class="min-h-screen"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
