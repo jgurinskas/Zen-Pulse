@@ -7,6 +7,25 @@ Input: Entire component is the tap target (touch/mouse); Space/Enter for keyboar
 Performance: requestAnimationFrame loop; React kept out of hot path
 Persistence: LocalStorage (namespaced) for best score, settings, and lifetime stats
 Accessibility: Reduced motion support, keyboard controls, high-contrast halo/ring
+
+## Demo shell & Vercel setup
+
+This repository now ships with a minimal Vite + React host so you can preview Zen Pulse locally or on Vercel without any extra scaffolding.
+
+- **Install:** `npm install`
+- **Local dev:** `npm run dev`
+- **Production build:** `npm run build`
+- **Preview build:** `npm run preview`
+
+When deploying to Vercel, use the defaults generated above:
+
+| Field | Value |
+| --- | --- |
+| Install Command | `npm install` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+
+The bundled demo page (`index.html`) lazy-loads the canvas game inside a Tailwind-enabled wrapper so you can validate sizing, keyboard input, and persistence before wiring it into your main AEM SPA.
 File Structure
 Drop these under src/games/zen-pulse/:
 src/
