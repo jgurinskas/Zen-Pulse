@@ -76,9 +76,11 @@ const ZenPulse: React.FC<ZenPulseProps> = ({
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
   const forcedCalmRef = useRef(false);
   const calmRestoreRef = useRef<boolean | null>(null);
   const autoCalmAppliedRef = useRef(false);
+
   const prefersReducedMotion = usePrefersReducedMotion();
   const [shieldHighlight, setShieldHighlight] = useState(false);
 
@@ -96,6 +98,7 @@ const ZenPulse: React.FC<ZenPulseProps> = ({
   }, []);
 
   useEffect(() => {
+
     if (!prefersReducedMotion || forceCalmMode) {
       autoCalmAppliedRef.current = false;
       return;
@@ -123,6 +126,18 @@ const ZenPulse: React.FC<ZenPulseProps> = ({
       calmRestoreRef.current = null;
     }
   }, [forceCalmMode, setCalmMode, state.settings.calmMode]);
+=======
+    if (prefersReducedMotion) {
+      setCalmMode(true);
+    }
+  }, [prefersReducedMotion, setCalmMode]);
+
+  useEffect(() => {
+    if (forceCalmMode) {
+      setCalmMode(true);
+    }
+  }, [forceCalmMode, setCalmMode]);
+
 
   useEffect(() => {
     if (!state.shieldFlashId) return;

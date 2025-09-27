@@ -35,7 +35,10 @@ class ZenPulseEngine implements EngineApi {
     this.calm = options.calm;
     this.handleFrame = this.handleFrame.bind(this);
     this.handleResize = this.handleResize.bind(this);
+
     this.handleResize();
+=======
+    this.resize();
     window.addEventListener('resize', this.handleResize);
     this.running = true;
     this.raf = requestAnimationFrame(this.handleFrame);
