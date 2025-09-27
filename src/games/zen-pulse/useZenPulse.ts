@@ -15,6 +15,7 @@ import {
   GamePhase,
   HitRating,
   LifetimeStats,
+  PersistedSettings,
   RoundConfig,
   ScoreTally,
 } from './types';
